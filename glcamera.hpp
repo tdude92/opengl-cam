@@ -1,11 +1,10 @@
-#ifndef CAMERA_H
-#define CAMERA_H
+#ifndef GLCAMERA_H
+#define GLCAMERA_H
 
 #include <SFML/Window.hpp>
 #include <GL/glew.h>
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
-#include <glm/gtc/type_ptr.hpp>
 
 #include <iostream>
 

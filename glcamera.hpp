@@ -70,6 +70,8 @@ class Camera {
             speed_  = 15.0f * deltaTime_;
             return view_;
         }
+        float pitch_;
+        float yaw_;
     private:
         static float mouseSensitivity_;
         sf::Clock clock_;
@@ -77,8 +79,6 @@ class Camera {
         float lastFrame_;
         float currentFrame_;
         float speed_;
-        float pitch_;
-        float yaw_;
         glm::vec3 pos_;
         glm::vec3 up_;
         glm::vec3 front_;

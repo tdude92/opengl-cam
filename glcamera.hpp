@@ -1,10 +1,11 @@
-#ifndef GLCAMERA_H
-#define GLCAMERA_H
+#ifndef CAMERA_H
+#define CAMERA_H
 
 #include <SFML/Window.hpp>
 #include <GL/glew.h>
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
+#include <glm/gtc/type_ptr.hpp>
 
 #include <iostream>
 
@@ -17,7 +18,7 @@ class Camera {
         , speed_(0.05f)
         , pitch_(0.0f)
         , yaw_(90.0f)
-        , pos_(pos)
+        , pos_(-pos)
         , up_(glm::vec3(0.0f, 1.0f, 0.0f))
         , front_(glm::vec3(cos(glm::radians(yaw_)), sin(glm::radians(pitch_)), sin(glm::radians(yaw_))))
         , view_(glm::lookAt(pos_, pos_ + front_, up_)) {}
@@ -70,8 +71,6 @@ class Camera {
             speed_  = 15.0f * deltaTime_;
             return view_;
         }
-        float pitch_;
-        float yaw_;
     private:
         static float mouseSensitivity_;
         sf::Clock clock_;
@@ -79,6 +78,8 @@ class Camera {
         float lastFrame_;
         float currentFrame_;
         float speed_;
+        float pitch_;
+        float yaw_;
         glm::vec3 pos_;
         glm::vec3 up_;
         glm::vec3 front_;
